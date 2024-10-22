@@ -1,8 +1,4 @@
-# Copyright (c) 2024. All rights reserved.
-# docker-compose file for production purposes
-# author: Dennis Grewe
 version: '3'
-
 services:
   mysql-db:
     image: mysql:8.0
@@ -13,9 +9,9 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     ports:
-      - "3306:3306"
+      - "0.0.0.0:3306:3306"  # Make MySQL accessible from outside
     volumes:
-      - mysql-data:/var/lib/mysql # Persist MySQL data to a Docker volume
+      - mysql-data:/var/lib/mysql
     networks:
       - golfclub-network
 
@@ -26,33 +22,33 @@ services:
     volumes:
       - ../golfclub-management:/workspace
     ports:
-      - "8083:8080"  # Expose backend on port 8083
+      - "0.0.0.0:8080:8080"  # Expose Spring Boot backend publicly
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/golfclub
       SPRING_DATASOURCE_USERNAME: user
       SPRING_DATASOURCE_PASSWORD: password
       JAVA_HOME: /docker-java-home
       SPRING_PROFILES_ACTIVE: dev
+    links:
+      - mysql-db:mysql-db
     depends_on:
       - mysql-db
     networks:
       - golfclub-network
-    restart: always  # Restart in case of failure
 
   vue-frontend:
     build:
-      context: ../frontend  # This is the path to the Vue.js project directory
-      dockerfile: Dockerfile  # Dockerfile is in the root of the frontend directory
+      context: ../frontend
+      dockerfile: Dockerfile
     container_name: vue-frontend
     volumes:
-      - ../frontend:/workspace  # Mount the frontend source code for live reloading
+      - ../frontend:/workspace
     ports:
-      - "8084:80"  # Expose port 80 for public access to Vue.js frontend
+      - "0.0.0.0:8081:8081"  # Expose Vue.js frontend publicly
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
     networks:
       - golfclub-network
-    restart: always  # Ensure it restarts automatically in case of failure
 
   notification-service:
     build:
@@ -62,7 +58,7 @@ services:
     volumes:
       - ../notification-service:/app
     ports:
-      - "8082:8082"  # Port for notification service
+      - "0.0.0.0:8082:8082"  # Expose Flask notification service publicly
     environment:
       - FLASK_ENV=development
       - DATABASE_URL=sqlite:////app/notifications.db
@@ -70,10 +66,9 @@ services:
       - golfclub-network
     depends_on:
       - mysql-db
-    restart: always
 
 volumes:
-  mysql-data: # Declare the volume for persisting MySQL data
+  mysql-data:
 
 networks:
   golfclub-network:
