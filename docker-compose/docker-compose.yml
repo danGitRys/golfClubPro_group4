@@ -47,7 +47,7 @@ services:
     volumes:
       - ../frontend:/workspace  # Mount the frontend source code for live reloading
     ports:
-      - "80:8081"  # Expose port 80 for public access to Vue.js frontend
+      - "8084:80"  # Expose port 80 for public access to Vue.js frontend
     environment:
       - NODE_ENV=production
     networks:
