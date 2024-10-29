@@ -31,3 +31,4 @@ replay_pid*
 
 # VS code specifics #
 .vscode
+node_modules/
