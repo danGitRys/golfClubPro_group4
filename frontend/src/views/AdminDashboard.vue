@@ -88,7 +88,21 @@
   
   <script>
   import axios from 'axios';
-  
+  var name = "John" // Missing semicolon and `var` instead of `let` or `const`
+
+function greet(name) { // Unused variable 'name'
+  console.log("Hello") // Missing semicolon and double quotes instead of single
+}
+
+function add(a,b){
+return a+b // No indentation, missing semicolon, no spaces around operators
+}
+
+const  unusedVar = 42;    // Extra whitespace at the end and unused variable
+console.log(unusedVar);
+
+add(3 ,5) // Extra spaces around arguments, missing semicolon
+
   export default {
     data() {
       return {
