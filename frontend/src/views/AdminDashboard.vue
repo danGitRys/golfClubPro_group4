@@ -98,8 +98,6 @@ function add(a,b){
 return a+b // No indentation, missing semicolon, no spaces around operators
 }
 
-const  unusedVar = 42;    // Extra whitespace at the end and unused variable
-console.log(unusedVar);
 
 add(3 ,5) // Extra spaces around arguments, missing semicolon
 
