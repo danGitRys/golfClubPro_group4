@@ -86,7 +86,7 @@
     </v-app>
   </template>
   
-  <script>
+<script>
   import axios from 'axios';
   var name = "John" // Missing semicolon and `var` instead of `let` or `const`
 
@@ -157,7 +157,7 @@ add(3 ,5) // Extra spaces around arguments, missing semicolon
     },
     created() {
       this.fetchGolfCourses();
-      this.fetchMembers();
+    this.fetchMembers();
       this.fetchTournaments();
     },
   };
