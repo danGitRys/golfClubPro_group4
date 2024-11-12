@@ -66,9 +66,16 @@ public class Hole {
      * Sets the unique identifier for this hole.
      * 
      * @param id the id to set for the hole
+     * not covered in overflow
      */
     public void setId(Long id) {
-        this.id = id;
+        if (id>Long.MAX_VALUE){
+            this.id = Long.MAX_VALUE;
+        }
+        else{
+            this.id = Math.abs(id);
+        }
+        
     }
 
     /**
