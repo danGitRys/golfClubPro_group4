@@ -89,8 +89,8 @@ class TournamentServiceTest {
     public void testAddTournamentTwice() {
         Tournament tournament = new Tournament();
         tournament.setName("Spring Open");
-        Date currentDate = new Date();
-        tournament.setDate(currentDate);
+        Date date = new Date((new Date()).getTime() + 86400000); // date 1 day in the future
+        tournament.setDate(date);
 
         when(tournamentRepository.save(any(Tournament.class))).thenReturn(tournament);
         when(tournamentService.findByName(tournament.getName())).thenReturn(null).thenReturn(tournament);
