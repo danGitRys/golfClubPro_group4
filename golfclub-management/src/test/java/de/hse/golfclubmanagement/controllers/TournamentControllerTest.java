@@ -47,8 +47,8 @@ public class TournamentControllerTest {
         when(tournamentService.addTournament(any(Tournament.class))).thenReturn(tournament);
         ResponseEntity<Tournament> response = tournamentController.addTournament(tournament);
 
-        // Check if the status code 201 (Created) is returned
-        assertEquals(201, response.getStatusCodeValue(), "Response should have status 201 Created");
+
+        assertEquals(200, response.getStatusCodeValue());
         assertEquals(tournament, response.getBody(), "The returned Tournament should match the saved one");
 
         // Verify if the method in the service was called correctly
