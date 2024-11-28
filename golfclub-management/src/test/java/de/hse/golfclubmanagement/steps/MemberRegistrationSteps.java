@@ -2,7 +2,6 @@ package de.hse.golfclubmanagement.steps;
 
 import de.hse.golfclubmanagement.models.Member;
 import de.hse.golfclubmanagement.repositories.MemberRepository;
-import de.hse.golfclubmanagement.models.Member;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

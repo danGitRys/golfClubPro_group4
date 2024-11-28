@@ -17,7 +17,6 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.ResponseEntity;
 
-import de.hse.golfclubmanagement.models.GolfCourse;
 import de.hse.golfclubmanagement.models.Tournament;
 import de.hse.golfclubmanagement.services.TournamentService;
 

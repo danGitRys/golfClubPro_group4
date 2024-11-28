@@ -8,7 +8,6 @@ import io.cucumber.java.en.When;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;

@@ -8,7 +8,6 @@ import static org.mockito.Mockito.times;
 import java.util.Date;
 import java.util.Optional;
 
-import de.hse.golfclubmanagement.models.GolfCourse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
