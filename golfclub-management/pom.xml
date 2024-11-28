@@ -107,7 +107,7 @@
                 <version>3.5.2</version>
                 <configuration>
                     <includes>
-                        <include>**/RunCucumberTest.java</include>
+                        <include>**/MemberCucumberIT.java</include>
                     </includes>
                 </configuration>
             </plugin>
