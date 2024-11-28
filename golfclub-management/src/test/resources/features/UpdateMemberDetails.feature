@@ -4,7 +4,6 @@ Feature: Aktualisierung der Mitgliedsdaten
   So that the club has accurate records.
 
   Scenario: Erfolgreiches Update
-    Given the user is logged in,
-    And is on the profile page,
-    When the user updates their email address,
-    Then the system saves the new email.
+    Given a member exists
+    When the user changes their name
+    Then the new name should be saved.
