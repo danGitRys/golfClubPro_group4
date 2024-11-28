@@ -4,7 +4,6 @@ Feature: Mitgliederregistrierung
   So that I can access club facilities.
 
   Scenario: Erfolgreiche Registrierung
-    Given the user is on the registration page,
-    When the user enters valid details,
-    And submits the form,
-    Then the system confirms the registration.
+    Given when a new member gets created
+    When the memeber details are correct
+    Then the member is a part of the system
