@@ -3,10 +3,10 @@
  *
  * This code is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License version 3 only, as
- * published by the Free Software Foundation.  
+ * published by the Free Software Foundation.
  *
  * This code is distributed for educational purposes only, but WITHOUT
- * ANY WARRANTY; See the GNU General Public License version 3 for more 
+ * ANY WARRANTY; See the GNU General Public License version 3 for more
  * details (a copy is included in the LICENSE file that
  * accompanied this code).
  */
@@ -22,6 +22,7 @@ import java.util.List;
  * @since   0.1
  */
 @Entity
+@Table(name = "golf_course")
 public class GolfCourse {
 
     /**
@@ -53,7 +54,7 @@ public class GolfCourse {
 
    /**
      * Gets the unique identifier for this golf course.
-     * 
+     *
      * @return the id of the golf course
      */
     public Long getId() {
@@ -62,7 +63,7 @@ public class GolfCourse {
 
     /**
      * Sets the unique identifier for this golf course.
-     * 
+     *
      * @param id the id to set for the golf course
      */
     public void setId(Long id) {
@@ -71,7 +72,7 @@ public class GolfCourse {
 
     /**
      * Gets the name of the golf course.
-     * 
+     *
      * @return the name of the golf course
      */
     public String getName() {
@@ -80,7 +81,7 @@ public class GolfCourse {
 
     /**
      * Sets the name of the golf course.
-     * 
+     *
      * @param name the name to set for the golf course
      */
     public void setName(String name) {
@@ -89,7 +90,7 @@ public class GolfCourse {
 
     /**
      * Gets the location (Ort) of the golf course.
-     * 
+     *
      * @return the location of the golf course
      */
     public String getLocation() {
@@ -98,7 +99,7 @@ public class GolfCourse {
 
     /**
      * Sets the location (Ort) of the golf course.
-     * 
+     *
      * @param ort the location to set for the golf course
      */
     public void setLocation(String location) {
@@ -107,7 +108,7 @@ public class GolfCourse {
 
     /**
      * Gets the list of holes (Bahnen) associated with this golf course.
-     * 
+     *
      * @return the list of holes
      */
     public List<Hole> getHoles() {
@@ -116,7 +117,7 @@ public class GolfCourse {
 
     /**
      * Sets the list of holes (Bahnen) associated with this golf course.
-     * 
+     *
      * @param holes the list of holes to set for the golf course
      */
     public void setHoles(List<Hole> holes) {

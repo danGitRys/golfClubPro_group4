@@ -3,10 +3,10 @@
  *
  * This code is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License version 3 only, as
- * published by the Free Software Foundation.  
+ * published by the Free Software Foundation.
  *
  * This code is distributed for educational purposes only, but WITHOUT
- * ANY WARRANTY; See the GNU General Public License version 3 for more 
+ * ANY WARRANTY; See the GNU General Public License version 3 for more
  * details (a copy is included in the LICENSE file that
  * accompanied this code).
  *
@@ -55,7 +55,7 @@ public class Hole {
 
     /**
      * Gets the unique identifier for this hole.
-     * 
+     *
      * @return the id of the hole
      */
     public Long getId() {
@@ -64,9 +64,9 @@ public class Hole {
 
     /**
      * Sets the unique identifier for this hole.
-     * 
+     *
      * @param id the id to set for the hole
-     * not covered in overflow
+
      */
     public void setId(Long id) {
         if (id>Long.MAX_VALUE){
@@ -80,7 +80,7 @@ public class Hole {
 
     /**
      * Gets the number of the hole (Bahn).
-     * 
+     *
      * @return the number of the hole
      */
     public int getNumber() {
@@ -89,7 +89,7 @@ public class Hole {
 
     /**
      * Sets the number of the hole (Bahn).
-     * 
+     *
      * @param number the number to set for the hole
      */
     public void setNummer(int number) {
@@ -98,7 +98,7 @@ public class Hole {
 
     /**
      * Gets the length of the hole (Bahn) in meters.
-     * 
+     *
      * @return the length of the hole
      */
     public int getLength() {
@@ -107,7 +107,7 @@ public class Hole {
 
     /**
      * Sets the length of the hole (Bahn) in meters.
-     * 
+     *
      * @param length the length to set for the hole
      */
     public void setLength(int length) {
@@ -116,7 +116,7 @@ public class Hole {
 
     /**
      * Gets the par value for this hole (Bahn).
-     * 
+     *
      * @return the par value of the hole
      */
     public int getPar() {
@@ -125,7 +125,7 @@ public class Hole {
 
     /**
      * Sets the par value for this hole (Bahn).
-     * 
+     *
      * @param par the par value to set for the hole
      */
     public void setPar(int par) {
@@ -134,7 +134,7 @@ public class Hole {
 
     /**
      * Gets the golf course to which this hole belongs.
-     * 
+     *
      * @return the golf course associated with this hole
      */
     public GolfCourse getGolfcourse() {
@@ -143,7 +143,7 @@ public class Hole {
 
     /**
      * Sets the golf course to which this hole belongs.
-     * 
+     *
      * @param golfcourse the golf course to associate with this Bahn
      */
     public void setGolfCourse(GolfCourse golfcourse) {

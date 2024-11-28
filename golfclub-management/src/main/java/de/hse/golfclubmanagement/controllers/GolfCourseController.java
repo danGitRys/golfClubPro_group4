@@ -3,10 +3,10 @@
  *
  * This code is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License version 3 only, as
- * published by the Free Software Foundation.  
+ * published by the Free Software Foundation.
  *
  * This code is distributed for educational purposes only, but WITHOUT
- * ANY WARRANTY; See the GNU General Public License version 3 for more 
+ * ANY WARRANTY; See the GNU General Public License version 3 for more
  * details (a copy is included in the LICENSE file that
  * accompanied this code).
  */
@@ -38,9 +38,13 @@ public class GolfCourseController {
      *
      * @param golfCourse the GolfCourse entity to be added
      * @return the added GolfCourse entity
+     * @throws IllegalArgumentException if the golfCourse is null
      */
     @PostMapping
     public ResponseEntity<GolfCourse> addGolfCourse(@RequestBody GolfCourse golfCourse) {
+        if (golfCourse == null) {
+            throw new IllegalArgumentException("GolfCourse must not be null"); // Check for null and throw exception
+        }
         GolfCourse savedGolfCourse = golfCourseService.saveGolfCourse(golfCourse);
         return ResponseEntity.ok(savedGolfCourse);
     }

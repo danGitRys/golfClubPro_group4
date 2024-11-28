@@ -1,0 +1,45 @@
+repos:
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0  # Use the latest version
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+
+  - repo: 'https://github.com/crate-ci/typos'
+    rev: v1.8.1
+    hooks:
+      - id: typos
+        args: ['--config', './config/local/typos.toml', './content/']
+        files: ^content|i18n
+
+  - repo: https://github.com/hadolint/hadolint
+    rev: v2.12.0
+    hooks:
+      - id: hadolint
+
+  - repo: local
+    hooks:
+      - id: checkstyle
+        name: checkstyle
+        entry: bash -c 'cd golfclub-management && mvn checkstyle:check'
+        language: system
+        files: ^golfclub-management/.*\.java$
+        pass_filenames: false
+
+      - id: java-tests
+        name: run java tests
+        entry: bash -c 'cd golfclub-management && mvn clean verify'
+        language: system
+        pass_filenames: false
+        files: ^golfclub-management/.*\.java$
+
+      - id: python-tests
+        name: run python tests
+        entry: bash -c 'cd notification-service && pytest --cov=app'
+        language: system
+        pass_filenames: false
+        types: [python]
+        files: ^notification-service/
