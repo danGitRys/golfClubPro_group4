@@ -1,3 +1,4 @@
+
 /** Copyright (c) 2024. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
@@ -103,5 +104,6 @@ public class HoleTest {
         // Equivalence class: null golf course
         hole.setGolfCourse(null);
         assertNull(hole.getGolfcourse(), "The golf course should be null");
+
     }
 }

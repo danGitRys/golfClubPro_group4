@@ -1,3 +1,4 @@
+
 /** Copyright (c) 2024. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
@@ -16,11 +17,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+package de.hse.golfclubmanagement.models;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+
 
 /**
  * This class tests the GolfCourse class.
@@ -129,5 +136,6 @@ public class GolfCourseTest {
         assertEquals(holes, golfCourse.getHoles());
         assertEquals(holes.size(), golfCourse.getHoles().size());
     }
+
 
 }

@@ -1,5 +1,6 @@
 package de.hse.golfclubmanagement.repositories;
 
+
 import de.hse.golfclubmanagement.models.GolfCourse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -121,5 +122,6 @@ public class GolfCourseRepositoryTest {
         Optional<GolfCourse> notFoundCourse = golfCourseRepository.findById(999L);
 
         assertFalse(notFoundCourse.isPresent(), "Should return empty for a non-existent course ID");
+
     }
 }

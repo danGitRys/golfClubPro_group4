@@ -1,12 +1,5 @@
-# Copyright (c) 2024. All rights reserved.
-# docker-compose file only for development purposes
-# author: Dennis Grewe
 version: '3'
-
-# list of services that shall be spinned up
 services:
-  # local data base container
-  # only for testing purposes
   mysql-db:
     image: mysql:8.0
     container_name: mysql-db
@@ -16,15 +9,12 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: password
     ports:
-      - "3306:3306"
+      - "0.0.0.0:3306:3306"  # Make MySQL accessible from outside
     volumes:
-      - mysql-data:/var/lib/mysql # Persist MySQL data to a Docker volume
+      - mysql-data:/var/lib/mysql
     networks:
       - golfclub-network
 
-  # golfclub management container to add,
-  # update, delete golfcourse entities from/to
-  # the data base
   golfclub-management:
     build:
       context: ../golfclub-management
@@ -32,7 +22,7 @@ services:
     volumes:
       - ../golfclub-management:/workspace
     ports:
-      - "8080:8080"
+      - "0.0.0.0:8080:8080"  # Expose Spring Boot backend publicly
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql-db:3306/golfclub
       SPRING_DATASOURCE_USERNAME: user
@@ -48,28 +38,17 @@ services:
 
   vue-frontend:
     build:
-      context: ../frontend  # This is the path to the Vue.js project directory
-      dockerfile: Dockerfile  # Dockerfile is in the root of the frontend directory
+      context: ../frontend
+      dockerfile: Dockerfile
     container_name: vue-frontend
     volumes:
-      - ../frontend:/workspace  # Mount the frontend source code for live reloading
+      - ../frontend:/workspace
     ports:
-      - "8081:8081"  # Expose the port (8081) for the Vue.js dev server
+      - "0.0.0.0:8081:8081"  # Expose Vue.js frontend publicly
     environment:
       - NODE_ENV=development
     networks:
       - golfclub-network
-
-  # turnier-auswertung:
-  #   build:
-  #     context: ../turnier-auswertung
-  #   container_name: nodejs-auswertung
-  #   volumes:
-  #     - ../turnier-auswertung:/workspace/turnier-auswertung
-  #   ports:
-  #     - "3001:3001"
-  #   networks:
-  #     - app-network
 
   notification-service:
     build:
@@ -79,7 +58,7 @@ services:
     volumes:
       - ../notification-service:/app
     ports:
-      - "8082:8082"
+      - "0.0.0.0:8082:8082"  # Expose Flask notification service publicly
     environment:
       - FLASK_ENV=development
       - DATABASE_URL=sqlite:////app/notifications.db
@@ -89,11 +68,8 @@ services:
       - mysql-db
 
 volumes:
-  mysql-data: # Declare the volume for persisting MySQL data
+  mysql-data:
 
-# define a local bridge network
-# to allow containers to discover
-# and interact with each other
 networks:
   golfclub-network:
     driver: bridge

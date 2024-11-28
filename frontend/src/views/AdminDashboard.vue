@@ -86,9 +86,21 @@
     </v-app>
   </template>
   
-  <script>
+<script>
   import axios from 'axios';
-  
+  var name = "John" // Missing semicolon and `var` instead of `let` or `const`
+
+function greet(name) { // Unused variable 'name'
+  console.log("Hello") // Missing semicolon and double quotes instead of single
+}
+
+function add(a,b){
+return a+b // No indentation, missing semicolon, no spaces around operators
+}
+
+
+add(3 ,5) // Extra spaces around arguments, missing semicolon
+
   export default {
     data() {
       return {
@@ -143,7 +155,7 @@
     },
     created() {
       this.fetchGolfCourses();
-      this.fetchMembers();
+    this.fetchMembers();
       this.fetchTournaments();
     },
   };
