@@ -5,5 +5,5 @@ Feature: Mitgliederregistrierung
 
   Scenario: Erfolgreiche Registrierung
     Given when a new member gets created
-    When the memeber details are correct
+    When the member details are correct
     Then the member is a part of the system
