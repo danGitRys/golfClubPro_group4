@@ -34,7 +34,7 @@ public class MemberRegistrationSteps {
         member.setName("Max Mustermann");
     }
 
-    @When("the memeber details are correct")
+    @When("the member details are correct")
     public void member_details_correct() {
         assertEquals("Max Mustermann", member.getName());
     }
