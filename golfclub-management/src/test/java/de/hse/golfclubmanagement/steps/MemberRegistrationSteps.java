@@ -25,10 +25,10 @@ public class MemberRegistrationSteps {
     private MemberRepository memberRepository;
 
     public MemberRegistrationSteps() {
-        MockitoAnnotations.openMocks(this); 
+        MockitoAnnotations.openMocks(this);
     }
 
-    @Given("when a new member gets created")
+    @Given("a new member gets created")
     public void create_new_member() {
         member = new Member();
         member.setName("Max Mustermann");
@@ -41,14 +41,11 @@ public class MemberRegistrationSteps {
 
     @Then("the member is a part of the system")
     public void member_part_of_system() {
-       
         Mockito.when(memberRepository.save(Mockito.any(Member.class))).thenReturn(member);
         Mockito.when(memberRepository.count()).thenReturn(1L);
 
-        
         memberRepository.save(member);
 
-        
         Mockito.verify(memberRepository).save(member);
         assertEquals(1L, memberRepository.count());
     }

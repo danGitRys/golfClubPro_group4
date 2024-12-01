@@ -19,17 +19,17 @@ public class UpdateMemberDetailsSteps {
     private final MemberRepository memberRepository;
 
     public UpdateMemberDetailsSteps() {
-      
+
         this.memberRepository = Mockito.mock(MemberRepository.class);
     }
 
     @Given("a member exists")
     public void member_exists() {
         member = new Member();
-        member.setId(1L); 
+        member.setId(1L);
         member.setName("Max Mustermann");
 
-        
+
         Mockito.when(memberRepository.save(Mockito.any(Member.class))).thenReturn(member);
         Mockito.when(memberRepository.findById(1L)).thenReturn(Optional.of(member));
 
@@ -43,9 +43,9 @@ public class UpdateMemberDetailsSteps {
         memberRepository.save(member);
     }
 
-    @Then("the new name should be saved.")
+    @Then("the new name should be saved")
     public void using_new_name() {
-        
+
         assertEquals("Franz Mustermann", member.getName());
     }
 }
